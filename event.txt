@@ -1,1 +1,1 @@
-alert('hi wes');
+window.location = "README.md";
