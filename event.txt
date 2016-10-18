@@ -1,1 +1,6 @@
 alert('github-event');
+var audio = document.createElement(audio);
+audio.src = "test.mp3";
+audio.type = "audio/mp3";
+var snd = new Audio("test.mp3");
+snd.play();
