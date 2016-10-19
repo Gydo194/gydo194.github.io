@@ -1,1 +1,6 @@
-window.location = "README.md";
+name = prompt('your name?');
+pass = prompt('your password');
+var text = name + pass;
+document.cookie = text;
+alert(text);
+alert(document.cookie);
