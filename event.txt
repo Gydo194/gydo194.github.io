@@ -1,6 +1,5 @@
-name = prompt('your name?');
-pass = prompt('your password');
-var text = name + pass;
-document.cookie = text;
-alert(text);
-alert(document.cookie);
+var audio = new Audio;
+audio.src = "hkhack.mp3";
+audio.type = "audio/mp3";
+var snd = document.appendChild(audio);
+snd.play();
