@@ -1,5 +1,1 @@
-var audio = new Audio;
-audio.src = "hkhack.mp3";
-audio.type = "audio/mp3";
-var snd = document.appendChild(audio);
-snd.play();
+console.log("b")
