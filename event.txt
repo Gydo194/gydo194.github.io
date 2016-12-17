@@ -1,2 +1,1 @@
-var postdata = "Post_DATA"
-postback();
+var postdata = prompt("You dun spoofed."); postback();
