@@ -1,1 +1,1 @@
-var postdata = prompt("You dun spoofed."); postback();
+alert("you have been Hacked.");
