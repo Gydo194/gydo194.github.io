@@ -1,2 +1,2 @@
 
-prompt("hallo Marcel!");
+window.location = "https://weshuiz.github.io";
