@@ -1,2 +1,1 @@
 
-window.location = "https://weshuiz.github.io";
