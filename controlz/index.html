@@ -1,0 +1,90 @@
+<html>
+	<head>
+	<title>ControlZ</title>
+	<!-- MDL sources -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+	  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <!-- end MDL sources -->
+      
+      <!-- MDL styles -->
+      <style>
+      .webapp-layout {
+      	background: black;
+      }
+      	.webapp-layout .mdl-layout__header, .webapp-layout .mdl-layout__drawer-button {
+      		color: white;
+      	}
+      </style>
+      <!-- end MDL styles -->
+      
+      <!-- ExtensibleWebApp styles -->
+      <style>
+      .applet {
+      	margin: 0 auto;
+      	border-radius: 5px;
+      	width: 95vw;
+      	height: auto;
+      	background-color: white;
+      	margin-bottom: 10px;
+      	
+      }
+      .webapp-content {
+      	margin: 0 auto;
+      	margin-bottom: 0.5vh;
+  
+      }
+      .descriptor {
+      	text-align: center;
+      }
+      </style>
+      <!-- end ExtenstibleWebApp styles -->
+      
+      <!-- ExtensibleWebApp scripts -->
+      <script defer src="js/main.js"></script>
+      
+      <!-- end ExtensibleWebApp scripts-->
+      
+      
+      </head>
+      
+      <body>
+      		<div class="webapp-layout mdl-layout mdl-js-layout">
+      			<header id="app-header" class="mdl-layout__header mdl-layout__header--transparent">
+      				<div class="mdl-layout__header-row">
+      					<span id="app-title" class="mdl-layout-title">ControlZ v0.1</span>
+      					<div class="mdl-layout-spacer" ></div>
+      					
+      					<nav class="mdl-navigation">
+      						<a class="mdl-navigation__link" href="#">Home</a>
+      						<a class="mdl-navigation__link" href="add">Add Devices</a>
+      					</nav>
+      				</div>
+      			</header>
+      			<div class="mdl-layout__drawer">
+      			<span id="app-title-menu" class="mdl-layout-title">Menu</span>
+      			<nav class="mdl-navigation">
+      				<a class="mdl-navigation__link" href="#">Home</a>
+      				<a class="mdl-navigation__link" href="#">Add Device</a>
+      				<a class="mdl-navigation__link" href="#">Config</a>
+      			</nav>
+      			
+      			</div>
+      			
+      			<main class="mdl-layout__content">
+      			<div class="descriptor">
+      			<h2><font color="white">Devices</font></h2>
+      			</div>
+      			<div class="webapp-content" id="app-content">
+      			
+      				      				
+      				
+      			</div>
+      			
+      			</main>
+      			
+      		</div>
+      
+      </body>
+ </html>

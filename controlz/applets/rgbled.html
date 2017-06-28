@@ -1,0 +1,45 @@
+<html>
+<head>
+
+<style>
+
+</style>
+
+<script>
+//ControlZ applet for RGB LED (arduino based)
+
+//define variables
+
+var url = "http://192.168.3.117:8000/rgb?r=%r%&g=%g%&b=%b%"
+
+
+function post() {
+	console.log("POSTING");
+	var r = document.getElementById("rgbled-slider-red").value;
+	var g = document.getElementById("rgbled-slider-green").value;
+	var b = document.getElementById("rgbled-slider-blue").value;
+	console.log("Red:"+r+",Green:"+g+",Blue:"+b);
+	var script = document.createElement("script");
+	script.src = url.replace("%r%",r).replace("%g%",g).replace("%b%",b);
+	console.log("URL:"+script.src);
+	script.id = "GETscript";
+	document.head.appendChild(script);
+	document.head.removeChild(document.getElementById("GETscript"));
+}
+</script>
+</head>
+<body>
+
+<div class="rgbled-ControlZ-applet">
+<div class="rgbled-slider rgbled-slider-red">
+<p>Red<input class="rgbled-slider rgbled-slider-red" id="rgbled-slider-red" type="range" min="0" max="255" defaultValue="0" onchange="post()"/></p>
+</div>
+<div class="rgbled-slider rgbled-slider-green">
+<p>Green<input class="rgbled-slider rgbled-slider-green" id="rgbled-slider-green" type="range" min="0" max="255" defaultValue="0" onchange="post()" /></p>
+</div>
+<div class="rgbled-slider rgbled-slider-blue">
+<p>Blue<input class="rgbled-slider rgbled-slider-blue" id="rgbled-slider-blue" type="range" min="0" max="255" defaultValue="0" onchange="post()" /></p>
+</div>
+</div>
+</body>
+</html>
