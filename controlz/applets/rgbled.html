@@ -19,13 +19,20 @@ function post() {
 	var g = document.getElementById("rgbled-slider-green").value;
 	var b = document.getElementById("rgbled-slider-blue").value;
 	console.log("Red:"+r+",Green:"+g+",Blue:"+b);
-	var script = document.createElement("script");
-	script.src = url.replace("%r%",r).replace("%g%",g).replace("%b%",b);
-	console.log("URL:"+script.src);
-	script.id = "GETscript";
-	document.head.appendChild(script);
-	document.head.removeChild(document.getElementById("GETscript"));
+	GETrequest(url.replace("%r%",r).replace("%g%",g).replace("%b%",b));
 }
+
+function GETrequest(url) {
+var req = document.createElement("script");
+req.src = url;
+req.type = "text/javascript";
+req.onload = function() {req.parentNode.removeChild(req);}
+document.head.appendChild(req);
+
+}
+
+
+
 </script>
 </head>
 <body>
