@@ -23,11 +23,9 @@ function post() {
 }
 
 function GETrequest(url) {
-var req = document.createElement("script");
+var req = document.createElement("img");
 req.src = url;
-req.type = "text/javascript";
-req.onload = function() {req.parentNode.removeChild(req);}
-document.head.appendChild(req);
+req = null;
 
 }
 
