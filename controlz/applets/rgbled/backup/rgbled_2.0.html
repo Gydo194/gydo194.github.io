@@ -1,0 +1,79 @@
+<html>
+<head>
+<script src="jscolor.js"></script>
+
+<style>
+#colorpicker {
+	width: 15vw;
+	height: 10vw;
+	//margin: auto auto;
+	//float: center;
+	//display: block;
+}
+.colorpicker-container {
+//	margin: auto auto;
+//	float: center;
+//	display: flex;
+}
+
+</style>
+
+
+<script>
+var id = "1";
+var lid = null;
+lid = getParamByName("id",window.location);
+if(lid != null) { id = lid; } else { id = "1"; console.log("WARN: rgbled: ID param not specified, defaulting to id=1"); }
+
+var url = "rgbled.php?get&id=%id%";
+var postURL = "rgbled.php?set&r=%r%&g=%g%&b=%b%&id=%id%";
+
+function updateColorPicker() {
+	var xhr = new XMLHttpRequest();
+	console.log(url);
+	xhr.open("GET",url.replace("%id%",id));
+	xhr.onload = function() {
+		console.log("raw:"+this.responseText);
+		var arr = JSON.parse(this.responseText);
+		document.getElementById("colorpicker").jscolor.fromRGB(arr.R,arr.G,arr.B);
+	};
+	xhr.send(null);
+}
+
+function postRGB(color) {
+	var r = Math.floor(color.rgb[0]);
+	var g = Math.floor(color.rgb[1]);
+	var b = Math.floor(color.rgb[2]);
+	console.log("R:"+r+" G:"+g+" B:"+b);
+	
+	
+	xhr = new XMLHttpRequest();
+	xhr.open("GET",postURL.replace("%r%",r).replace("%g%",g).replace("%b%",b).replace("%id%",id));
+	xhr.send(null);
+}
+
+
+function getParamByName(name, iurl) {
+	console.log("getParamByName: Param name specified:"+name+",URL:"+iurl);
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+
+setInterval(function(){updateColorPicker();},500);
+</script>
+
+
+
+</head>
+<body>
+<div class="colorpicker-container" >
+<input type="button" id="colorpicker" onchange="postRGB(this.jscolor)" class="jscolor {position: 'right'}" value="000000" />
+</div>
+</body>
+</html>

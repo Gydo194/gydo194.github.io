@@ -1,4 +1,4 @@
-//main.js by Gydo194
+//OpenExtensibleFramework/main.js by Gydo194
 
 var mainConfigJsonPath = "json/main.json";
 var config = {};

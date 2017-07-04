@@ -15,10 +15,10 @@ var lid = getParamByName("id",window.location);
 console.log("lID:"+lid);
 if(lid != null) { id = lid; } else { id = 1; }
 
-var url = "../backend/drivers/rgbled/rgbled.php?set&r=%r%&g=%g%&b=%b%&id=%id%";
-
+var url = "rgbled.php?set&r=%r%&g=%g%&b=%b%&id=%id%";
+//the only copied code, rewrite!!!
 function getParamByName(name, iurl) {
-	console.log("getParamByName: Param name specified:"+name+",URL:"+url);
+	console.log("getParamByName: Param name specified:"+name+",URL:"+iurl);
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -27,7 +27,7 @@ function getParamByName(name, iurl) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-
+//end copied code
 
 
 function post() {
@@ -49,7 +49,7 @@ req = null;
 
 function setStartingValues() {
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET","../backend/drivers/rgbled/rgbled.php?get&id="+id);
+	xhr.open("GET","rgbled.php?get&id="+id);
 	xhr.onload = function() {setSliders(decodeJson(this.responseText));};
 	xhr.send(null);
 }
@@ -89,7 +89,6 @@ setInterval(function(){setStartingValues();},500);
 <div class="rgbled-slider rgbled-slider-blue">
 <p>Blue<input class="rgbled-slider rgbled-slider-blue" id="rgbled-slider-blue" type="range" min="0" max="255" defaultValue="0" onchange="post()" /></p>
 </div>
-<button onclick="setStartingValues()">refresh</button>
 </div>
 </body>
 </html>

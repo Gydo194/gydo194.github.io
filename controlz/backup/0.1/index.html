@@ -13,7 +13,7 @@
 	
 	
 	
-	<link rel="stylesheet" href="css/applet-grid-layout.css" />
+	
 	
 	
 	
@@ -29,17 +29,17 @@
       <!-- MDL styles -->
       <style>
       .webapp-layout {
-      	background: #F7F7F7;
+      	background: black;
       }
       	.webapp-layout .mdl-layout__header, .webapp-layout .mdl-layout__drawer-button {
-      		color: #3F3F3F;
+      		color: white;
       	}
       </style>
       <!-- end MDL styles -->
       
       <!-- ControlZ styles -->
       <style>
-      .applet-default-old-layout {
+      .applet {
       	margin: 0 auto;
       	border-radius: 5px;
       	width: 95vw;
@@ -56,22 +56,6 @@
       .descriptor {
       	text-align: center;
       }
-      
-      .mdl-layout-title {
-      	color: #3F3F3F;
-      	float: center;
-      	margin: 0 auto;
-      }
-   
-	.applet-default-grid-layout {
-		background-color: #E5E5E5;
-	}
-  
-  .app-title {
-    font-color: #3F3F3F;
-    font-size: 2em;
-  }
-    
       </style>
       <!-- end ExtenstibleWebApp styles -->
       
@@ -87,17 +71,17 @@
       		<div class="webapp-layout mdl-layout mdl-js-layout">
       			<header id="app-header" class="mdl-layout__header mdl-layout__header--transparent">
       				<div class="mdl-layout__header-row">
-      					<span id="app-title-mdl" class="mdl-layout-title"></span>
-      					<span class="app-title">ControlZ</span>
+      					<span id="app-title" class="mdl-layout-title">ControlZ v0.1</span>
       					<div class="mdl-layout-spacer" ></div>
       					
       					<nav class="mdl-navigation">
-      						
+      						<a class="mdl-navigation__link" href="#">Home</a>
+      						<a class="mdl-navigation__link" href="add">Add Devices</a>
       					</nav>
       				</div>
       			</header>
       			<div class="mdl-layout__drawer">
-      			<span id="app-title-menu" class="mdl-layout-title">ControlZ menu</span>
+      			<span id="app-title-menu" class="mdl-layout-title">Menu</span>
       			<nav class="mdl-navigation">
       				<a class="mdl-navigation__link" href="#">Home</a>
       				<a class="mdl-navigation__link" href="#">Add Device</a>
@@ -108,17 +92,13 @@
       			
       			<main class="mdl-layout__content">
       			<div class="descriptor">
-      			<h2><font color="white"></font></h2>
+      			<h2><font color="white">Devices</font></h2>
       			</div>
-      			<div class="webapp-content*disabled*" id="app-content-disabled">
+      			<div class="webapp-content" id="app-content">
       			
-      			<div class="applet-container" id="app-content" >
-    
+      				      				
+      				
       			</div>
-
-
-
-      			</div> <!-- webapp-content -->
       			
       			</main>
       			

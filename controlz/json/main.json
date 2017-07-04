@@ -1,17 +1,13 @@
 {
 	"applets":[
-	{"name":"RGB","className":"applet derp","applet_src":"applets/rgbled.html"},
+	{"name":"RGB","className":"applet-default-grid-layout applet-rgbled","applet_src":"applets/rgbled/rgbled_2.0.html?id=1"},
+	
+	{"name":"RGB2","className":"applet-default-grid-layout applet-rgbled","applet_src":"applets/rgbled/rgbled_v0.3.html?id=1"},
+	
+	{"name":"applet_html test","className":"applet-default-grid-layout applethtmltest","applet_html":"<html><body class='applet'><h1><font color='blue'>applet_html</font></h1></body></html>"},
 	
 	
-	{"name":"applet_html test","className":"applet applethtmltest","applet_html":"<html><body class='applet'><h1><font color='blue'>applet_html</font></h1></body></html>"},
-	
-	
-	{"name":"RGB2","className":"applet derp2","applet_src":"applets/applet.html"},
-	
-	{"name":"applet_html test","className":"applet applethtmltest","applet_html":"<html><body class='applet'><h1><font color='blue'>applet_html</font></h1></body></html>"},
-	
-	
-	{"name":"applet_html test","className":"applet applethtmltest","applet_html":"<html><body class='applet'><h1><font color='blue'>applet_html</font></h1></body></html>"}
+	{"name":"applet_html test","className":"applet-default-grid-layout applethtmltest","applet_html":"<html><body class='applet'><h1><font color='blue'>applet_html</font></h1></body></html>"}
 	
 	
 	]
