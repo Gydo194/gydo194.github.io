@@ -1,0 +1,94 @@
+<html>
+<head>
+
+<style>
+
+</style>
+
+<script>
+//ControlZ applet for RGB LED (arduino based)
+
+//define variables
+var id = null;
+
+var lid = getParamByName("id",window.location);
+console.log("lID:"+lid);
+if(lid != null) { id = lid; } else { id = 1; }
+
+var url = "rgbled.php?set&r=%r%&g=%g%&b=%b%&id=%id%";
+//the only copied code, rewrite!!!
+function getParamByName(name, iurl) {
+	console.log("getParamByName: Param name specified:"+name+",URL:"+iurl);
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+//end copied code
+
+
+function post() {
+	console.log("POSTING");
+	var r = document.getElementById("rgbled-slider-red").value;
+	var g = document.getElementById("rgbled-slider-green").value;
+	var b = document.getElementById("rgbled-slider-blue").value;
+	console.log("Red:"+r+",Green:"+g+",Blue:"+b);
+	var set_url = url.replace("%r%",r).replace("%g%",g).replace("%b%",b).replace("%id%",id);
+	console.log("set_url:"+set_url);
+	GETrequest(set_url);
+}
+
+function GETrequest(url) {
+var req = document.createElement("img");
+req.src = url;
+req = null;
+}
+
+function setStartingValues() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET","rgbled.php?get&id="+id);
+	xhr.onload = function() {setSliders(decodeJson(this.responseText));};
+	xhr.send(null);
+}
+function decodeJson(data) {
+	console.log("decodeJSON: data:"+data);
+	return JSON.parse(data);
+}
+
+function setSliders(val) {
+	console.log("setSliders: values:"+val);
+	console.log(val);
+	var r = document.getElementById("rgbled-slider-red");
+	var g = document.getElementById("rgbled-slider-green");
+	var b = document.getElementById("rgbled-slider-blue");
+	
+	r.value = val.R;
+	console.log("setting R to:"+val.R);
+	g.value = val.G;
+	console.log("setting G to:"+val.G);
+	b.value = val.B;
+	console.log("setting B to:"+val.B);
+}
+
+setInterval(function(){setStartingValues();},500);
+
+</script>
+</head>
+<body>
+
+<div class="rgbled-ControlZ-applet">
+<div class="rgbled-slider rgbled-slider-red">
+<p>Red<input class="rgbled-slider rgbled-slider-red" id="rgbled-slider-red" type="range" min="0" max="255" defaultValue="0" onchange="post()"/></p>
+</div>
+<div class="rgbled-slider rgbled-slider-green">
+<p>Green<input class="rgbled-slider rgbled-slider-green" id="rgbled-slider-green" type="range" min="0" max="255" defaultValue="0" onchange="post()" /></p>
+</div>
+<div class="rgbled-slider rgbled-slider-blue">
+<p>Blue<input class="rgbled-slider rgbled-slider-blue" id="rgbled-slider-blue" type="range" min="0" max="255" defaultValue="0" onchange="post()" /></p>
+</div>
+</div>
+</body>
+</html>

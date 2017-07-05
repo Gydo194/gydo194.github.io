@@ -1,4 +1,4 @@
-<html>
+<html charset="utf-8" >
 	<head>
 	<!-- favicon stuff -->
 	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
@@ -11,10 +11,10 @@
 	<meta name="theme-color" content="#ffffff">
     <!-- end favicon -->
 	
-	
+	<meta name="charset" content="utf-8" />
 	
 	<link rel="stylesheet" href="css/applet-grid-layout.css" />
-	
+	<script src="js/api.js" ></script>
 	
 	
 	
@@ -64,13 +64,21 @@
       }
    
 	.applet-default-grid-layout {
+	    /* override the color settings */
 		background-color: #E5E5E5;
 	}
   
   .app-title {
     font-color: #3F3F3F;
     font-size: 2em;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
   }
+  
+  
+  
+
     
       </style>
       <!-- end ExtenstibleWebApp styles -->
@@ -87,7 +95,7 @@
       		<div class="webapp-layout mdl-layout mdl-js-layout">
       			<header id="app-header" class="mdl-layout__header mdl-layout__header--transparent">
       				<div class="mdl-layout__header-row">
-      					<span id="app-title-mdl" class="mdl-layout-title"></span>
+      					<span id="app-title-mdl" class="mdl-layout-title app-title "></span>
       					<span class="app-title">ControlZ</span>
       					<div class="mdl-layout-spacer" ></div>
       					
@@ -99,9 +107,10 @@
       			<div class="mdl-layout__drawer">
       			<span id="app-title-menu" class="mdl-layout-title">ControlZ menu</span>
       			<nav class="mdl-navigation">
-      				<a class="mdl-navigation__link" href="#">Home</a>
-      				<a class="mdl-navigation__link" href="#">Add Device</a>
-      				<a class="mdl-navigation__link" href="#">Config</a>
+      				<a class="mdl-navigation__link" href="javascript:api.expand();">Expand Applets</a>
+      				<a class="mdl-navigation__link" href="javascript:api.resetSize();">Contract Applets</a>
+      				<a class="mdl-navigation__link" href="javascript:alert('not implemented');">Config</a>
+      				<a class="mdl-navigation__link" href="info.html">Info</a>
       			</nav>
       			
       			</div>
@@ -110,7 +119,7 @@
       			<div class="descriptor">
       			<h2><font color="white"></font></h2>
       			</div>
-      			<div class="webapp-content*disabled*" id="app-content-disabled">
+      			<div class="applet-wrapper" id="app-content-disabled">
       			
       			<div class="applet-container" id="app-content" >
     

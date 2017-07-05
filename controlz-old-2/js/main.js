@@ -23,7 +23,6 @@ function buildPage() {
 		if(config.applets[i].applet_src)
 		{
 			var element = document.createElement("iframe");
-			//element.id = config.applets[i].id;
 			element.className = config.applets[i].className;
 			console.log("Rendering applet in SRC mode, SRC ="+config.applets[i].applet_src);
 			console.log("ELEMENT CLASS:"+element.className);
@@ -32,16 +31,12 @@ function buildPage() {
 		else if (config.applets[i].applet_html)
 		{
 			var element = document.createElement("div");
-			//element.id = config.applets[i].id;
 			element.className = config.applets[i].className;
 			element.innerHTML = config.applets[i].applet_html;
 			console.log("Rendering applet in INNERHTML mode, INNERHTML ="+config.applets[i].applet_html);
 		}
 		console.log("appending element:"+element);
-		var div = document.createElement("div");
-		div.className = "applet-container-wrapper";
-		div.appendChild(element);
-		document.getElementById("app-content").appendChild(div);
+		document.getElementById("app-content").appendChild(element);
 	}
 	
 }

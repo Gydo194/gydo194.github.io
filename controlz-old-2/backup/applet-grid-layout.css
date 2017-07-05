@@ -10,9 +10,9 @@ grid.css -- ControlZ default skin grid layout
 	
 }
 .applet-default-grid-layout {
-	width: auto;
-	height: auto;
-	background-color: #E5E5E5;
+	width: 40vw;
+	height: 20vw;
+	background-color: #3F3F3F;
 	overflow: hidden;
 	position: relative;
 	margin: 20;
