@@ -1,10 +1,10 @@
 {
 	"applets":[
-	{"name":"RGB","className":"applet applet-default-grid-layout applet-rgbled","applet_src":"applets/rgbled/rgbled_2.0.html?id=1&text=LED strip&color=FF0000"},
+	{"name":"RGB","className":"applet applet-default-grid-layout applet-rgbled","applet_src":"applets/rgbled/rgbled_2.0.html?id=1&text=LED strip&color=E5E5E5"},
 	
 	
 	
-	{"name":"RGB","className":"applet applet-default-grid-layout applet-rgbled","applet_src":"applets/rgbled/rgbled_2.0.html?id=2&text=RGB-LED test id 2&color=00FF00"},
+	{"name":"RGB","className":"applet applet-default-grid-layout applet-rgbled","applet_src":"applets/rgbled/rgbled_2.0.html?id=2&text=RGB-LED test id 2&color=E5E5E5"},
 	
 	{"name":"RGB2","className":"applet applet-default-grid-layout applet-rgbled","applet_src":"applets/rgbled/rgbled_v0.3.html?id=1"},
 	
@@ -13,9 +13,13 @@
 	{"name":"RGB2","className":"applet applet-default-grid-layout applet-rgbled","applet_src":"applets/rgbled/rgbled_v0.3.html?id=2"},
 	
 	
-	{"name":"RGB","className":"applet applet-default-grid-layout applet-rgbled","applet_src":"applets/rgbled/rgbled_2.0.html?id=2&text=RGB-LED test id 2 - 2&color=0000FF"}
-	
-
+	{"name":"RGB","className":"applet applet-default-grid-layout applet-rgbled","applet_src":"applets/rgbled/rgbled_2.0.html?id=2&text=RGB-LED test id 2 - 2&color=E5E5E5"}
+        
+        
+        
+        
+         
+        
 	
 	]
 	

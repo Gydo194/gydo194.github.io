@@ -15,20 +15,17 @@ grid.css -- ControlZ default skin grid layout
     */
     
     display: flex;
-    flex: 50 50 auto;
-    
-    overflow: visible;
+    flex: 5 5 auto;
     
     
-    
-    -webkit-flex-grow: 50;
-    -webkit-flex-shrink: 50;
+    -webkit-flex-grow: 10;
+    -webkit-flex-shrink: 5;
     -webkit-flex-basis: auto;
     
     
     flex-flow: wrap;
-    flex-grow: 50;
-    flex-shrink: 50;
+    flex-grow: 10;
+    flex-shrink: 5;
     flex-basis: auto;
 	
 	
@@ -45,18 +42,16 @@ grid.css -- ControlZ default skin grid layout
 }
 
 .applet-default-grid-layout {
+	width: 40vw;
+	height: 20vw;
+	
+	min-width: 350px;
+	min-height:200px;
 
-
-	width: auto;
-	height: auto;
-	//background-color: #FAFAFA;
+	background-color: #FAFAFA;
 	overflow: hidden;
 	position: relative;
-	margin-top: 5px;
-	margin-right: 5px;
-	margin-bottom: 5px;
-	margin-left: 5px;
-
+	margin: 0 0;
 	/* box-shadow: 0px 0px 10px #88888; */
-	border: 1px solid transparent;
+	/* border: 1px solid black; */
 }

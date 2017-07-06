@@ -1,0 +1,149 @@
+<html id="html">
+<head>
+<script src="jscolor.js"></script>
+
+<style>
+#colorpicker {
+	width: 20vw;
+	height: 15vw;
+	border-radius: 50%;
+	background-color: "#FF0000";
+
+	
+}
+.colorpicker-container {
+
+	text-align: left;
+}
+
+.text {
+	
+}
+
+.color {
+	/*
+	background-color: #FF0000;
+	width: 100%;
+	height: 100%;
+	*/
+}
+html {
+	//background-color: #FF0000;
+}
+
+</style>
+
+
+<script>
+
+
+//development section
+console.log("window.top:"+window.top.location);
+console.log("SELF:"+self);
+//self.style.background-color = "#FF0000";
+
+//end development
+
+var applet_text = "RGB LED applet";
+var napplet_text = null;
+var id = "1";
+var nid = null;
+
+
+
+
+nid = getParamByName("id",window.location);
+if(nid != null) { id = nid; } else { id = "1"; console.log("WARN: rgbled: ID param not specified, defaulting to id=1"); }
+
+napplet_text = getParamByName("text",window.location);
+if(napplet_text != null) {
+	applet_text = napplet_text;
+	console.log("applet_text:"+applet_text);
+	} else { console.log("WARN: rgbled: TEXT param not specified, defaulting to \"RGB-LED applet\"."); };
+	
+var color = "#E5E5E5";
+var ncolor = null;
+ncolor = getParamByName("color",window.location);
+console.log("ncolor:"+ncolor);
+if(ncolor != null) { color = '#' + ncolor } else { ncolor = "UNSET"; console.log("WARN: rgbled: color not set, defaulting to #E5E5E5."); }
+
+document.getElementById("html").style.background = color;
+	
+
+
+var url = "rgbled.php?get&id=%id%";
+var postURL = "rgbled.php?set&r=%r%&g=%g%&b=%b%&id=%id%";
+
+
+
+
+
+
+function updateColorPicker() {
+	
+	
+	
+	
+	
+	var xhr = new XMLHttpRequest();
+	console.log(url);
+	xhr.open("GET",url.replace("%id%",id));
+	xhr.onload = function() {
+		console.log("raw:"+this.responseText);
+		var arr = JSON.parse(this.responseText);
+		document.getElementById("colorpicker").jscolor.fromRGB(arr.R,arr.G,arr.B);
+	};
+	xhr.send(null);
+}
+
+function postRGB(color) {
+	var r = Math.floor(color.rgb[0]);
+	var g = Math.floor(color.rgb[1]);
+	var b = Math.floor(color.rgb[2]);
+	console.log("R:"+r+" G:"+g+" B:"+b);
+	
+	
+	xhr = new XMLHttpRequest();
+	xhr.open("GET",postURL.replace("%r%",r).replace("%g%",g).replace("%b%",b).replace("%id%",id));
+	xhr.send(null);
+}
+
+
+function getParamByName(name, iurl) {
+	console.log("getParamByName: Param name specified:"+name+",URL:"+iurl);
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+
+setInterval(function(){updateColorPicker();},500);
+
+
+</script>
+
+
+
+</head>
+<body>
+<div class="color">
+<div class="colorpicker-container" >
+<input type="button" id="colorpicker" onchange="postRGB(this.jscolor)" class="jscolor {position: 'bottom'}" value="000000" />
+<span id="rgbled_applet_text" >RGB-LED applet</span>
+<br />
+<!--
+<button onclick="parent.api.expand();">expand</button>
+<button onclick="parent.api.resetSize();">reset</button>
+-->
+<script>
+document.getElementById("rgbled_applet_text").innerHTML = applet_text;
+document.getElementById("colorpicker").jscolor().show();
+</script>
+</div>
+</div>
+</body>
+</html>

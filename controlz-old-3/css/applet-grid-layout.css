@@ -17,9 +17,6 @@ grid.css -- ControlZ default skin grid layout
     display: flex;
     flex: 50 50 auto;
     
-    overflow: visible;
-    
-    
     
     -webkit-flex-grow: 50;
     -webkit-flex-shrink: 50;
